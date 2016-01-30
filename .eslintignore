@@ -1,0 +1,7 @@
+node_modules
+README.md
+client/assets
+*.log*
+package.json
+public/
+nohup.out

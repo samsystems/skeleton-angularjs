@@ -1,0 +1,29 @@
+language: node_js
+node_js:
+    - "4.2"
+addons:
+    firefox: "39.0"
+install:
+    - npm install
+    - npm run update-webdriver
+before_script:
+    - npm run build
+    - "export DISPLAY=:99.0"
+    - "sh -e /etc/init.d/xvfb start"
+    - nohup bash -c "node_modules/protractor/bin/webdriver-manager start 2>&1 &"
+    - npm run start-prod &
+    - sleep 3
+script:
+    - npm run linter
+    - npm run test-travis
+    - npm run test-e2e-travis
+env:
+    - PORT=3000
+#whitelist
+branches:
+    only:
+    - master
+    - development
+cache:
+    directories:
+    - node_modules
