@@ -1,4 +1,4 @@
-import '../assets/styles/index.scss';
+//import '../assets/styles/index.scss';
 
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
@@ -11,7 +11,7 @@ export default angular
     .module('skeletonAngularJs', [
         uiRouter,
         homeModule.name,
-	loginModule.name
+	    loginModule.name
     ])
     .config(routing)
 ;
