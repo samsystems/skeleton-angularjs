@@ -7,6 +7,7 @@ export default class LoginController {
 
         this.user = 'User';
         this.loginService = loginService;
+        this.loginError = '';
     }
 
     login() {
